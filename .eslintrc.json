@@ -17,6 +17,7 @@
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
+    "settings": { "import/resolver": { "node": { "extensions": [".js", ".jsx", ".ts", ".tsx", ".json", ".vue"] } } },
     "plugins": [
         "react",
         "react-hooks",
@@ -27,6 +28,8 @@
         "no-relative-import-paths"
     ],
     "rules": {
+        "prettier/prettier": "error",
+        "comma-dangle": [0, "always-multiline"],
         "no-shadow": "off",
         "react/jsx-one-expression-per-line": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
@@ -35,25 +38,20 @@
         "react-hooks/exhaustive-deps": "error",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        "prettier/prettier": [
+        "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+        "import/prefer-default-export": "off",
+        "no-use-before-define": ["error", { "variables": false }],
+        "import/extensions": [
             "error",
+            "ignorePackages",
             {
-                "trailingComma": "es5",
-                "tabWidth": 2,
-                "semi": true,
-                "singleQuote": true,
-                "endOfLine": "auto"
+                "js": "never",
+                "mjs": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never",
+                "vue": "never"
             }
-        ],
-        "sort-imports-es6-autofix/sort-imports-es6": [
-            2,
-            {
-                "ignoreCase": false,
-                "ignoreMemberSort": false,
-                "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-            }
-        ],
-        "import/prefer-default-export": "error",
-        "no-use-before-define": ["error", { "variables": false }]
+        ]
     }
 }

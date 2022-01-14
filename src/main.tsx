@@ -1,11 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import './index.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import { createStore } from './stores/helpers/createStore';
+import { StoreProvider } from './stores/helpers/storeContext';
+
+export const rootStore = createStore();
+const rootDiv = document.querySelector('#root');
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StoreProvider value={rootStore}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+  </StoreProvider>,
+  rootDiv
+);
